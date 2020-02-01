@@ -38,4 +38,9 @@ public class MoveToTarget : MonoBehaviour
         StartCoroutine(Move(target));
     }
 
+//    public Animator anim;
+//    public void Anmov()
+//    {
+//        anim
+//    }
 }
