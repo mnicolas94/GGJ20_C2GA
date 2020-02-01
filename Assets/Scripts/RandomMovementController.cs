@@ -8,7 +8,8 @@ public class RandomMovementController : MonoBehaviour
 {
     public Movement movement;
     public Bounds areaToMove;
-
+    public Bounds localAreaToMove;
+    
     public float restTime;
     public float variance;
     
@@ -19,17 +20,28 @@ public class RandomMovementController : MonoBehaviour
 
     private void Start()
     {
-        _moveTo = areaToMove.RandomPos();
+        RandomTimeAndPos();
     }
 
+    private void RandomTimeAndPos()
+    {
+        localAreaToMove.center = movement.transform.position;
+        _moveTo = localAreaToMove.RandomPos();
+
+        if (!areaToMove.Contains(_moveTo))
+        {
+            _moveTo = areaToMove.ClosestPoint(_moveTo);
+        }
+        
+        float randrest = Random.Range(restTime - variance, restTime + variance); 
+        _timeToWalk = Time.time + randrest;
+    }
+    
     private void FixedUpdate()
     {
         if ((((Vector2) transform.position) - _moveTo).magnitude < moveThreshold)
         {
-            _moveTo = areaToMove.RandomPos();
-
-            _timeToWalk = Time.time + restTime;
-            // TODO tiempo aleatorio
+            RandomTimeAndPos();
         }
         
         if (Time.time >= _timeToWalk)

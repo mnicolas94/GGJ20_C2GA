@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3883881127615736842}
   - component: {fileID: 3883881127615736843}
-  - component: {fileID: 3883881127615736840}
+  - component: {fileID: 3396488707943980066}
   - component: {fileID: 3883881127615736841}
   - component: {fileID: 3883881127615736844}
   - component: {fileID: 3883881127615736845}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3883881127615736840
+--- !u!114 &3396488707943980066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,12 +94,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3883881127615736838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ca7404e8da64d4c9b73af6dca96ffb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9d99fca4e856f478e5c699c190734b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeedModiffier: -0.95
   maxSpeedModiffier: 2
-  _speed: 3
+  _speed: 20
 --- !u!114 &3883881127615736841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48621f18a0835a4d9273b766aa82211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 3883881127615736840}
+  character: {fileID: 3396488707943980066}
 --- !u!114 &3883881127615736844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,12 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eb8b8c2f0d14a409b127acdb13ea88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 3883881127615736840}
+  movement: {fileID: 3396488707943980066}
   areaToMove:
     m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 5, y: 2.5, z: 0}
+  localAreaToMove:
+    m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 5, y: 5, z: 0}
-  restTime: 1
-  variance: 1
+  restTime: 0
+  variance: 0
   moveThreshold: 0.5
 --- !u!50 &3883881127615736845
 Rigidbody2D:

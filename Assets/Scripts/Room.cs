@@ -5,9 +5,8 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public Bounds bounds;
-    public GameObject dancerPrefab;
-    public int spawnedNumber = 0; 
-
+    public DancerNumberSpawn dancersNumberSpawn;    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +21,21 @@ public class Room : MonoBehaviour
 
     void Spawn()
     {
-        for (int i = 0; i < spawnedNumber; i++)
+        foreach (var prefabDancer in dancersNumberSpawn.Keys)
         {
-            Vector2 randomPos = bounds.RandomPos();
-            GameObject.Instantiate(dancerPrefab, randomPos, Quaternion.identity);
+            for (int i = 0; i < dancersNumberSpawn[prefabDancer]; i++)
+            {
+                Vector2 randomPos = bounds.RandomPos();
+                var go = GameObject.Instantiate(prefabDancer, randomPos, Quaternion.identity);
+                var rmc = go.GetComponent<RandomMovementController>();
+                rmc.areaToMove = bounds;
+            }
         }
     }
+}
+
+[System.Serializable()]
+public class DancerNumberSpawn : SerializableDictionaryBase<GameObject, int>
+{
+
 }
