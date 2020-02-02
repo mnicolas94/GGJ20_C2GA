@@ -17,6 +17,7 @@ public class RandomMovementController : MonoBehaviour
     
     private Vector2 _moveTo;
     private float _timeToWalk;
+    private bool _resting;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class RandomMovementController : MonoBehaviour
         
         float randrest = Random.Range(restTime - variance, restTime + variance); 
         _timeToWalk = Time.time + randrest;
+        _resting = true;
     }
     
     private void FixedUpdate()
@@ -43,10 +45,24 @@ public class RandomMovementController : MonoBehaviour
         {
             RandomTimeAndPos();
         }
-        
+
         if (Time.time >= _timeToWalk)
+        {
             movement.Move(_moveTo - (Vector2)transform.position);
+            _resting = false;
+        }
         else
             movement.Move(Vector2.zero); // para que se detenga
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        RandomTimeAndPos();
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (!_resting)
+            RandomTimeAndPos();
     }
 }

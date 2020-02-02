@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VecinoAnimationController
+  m_Controller: {fileID: 9100000, guid: c5058c892a2a5424e8c5510a8d8e5653, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5c9841a7c8d7ca348ab2f2bc1bf8c63b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: df15d1f3819bb2c4188c21fcfa5d02a2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 74dfa39234726b74baa8ce09b3de1108, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 68f3ef4a0a2629e42a0774e8ff57ba2a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5912f6c5f0ac0f34f8da1d367991a9af, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6980a06db272959489015f3c2d99d467, type: 2}

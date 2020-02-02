@@ -26,7 +26,7 @@ public class Room : MonoBehaviour
             for (int i = 0; i < dancersNumberSpawn[prefabDancer]; i++)
             {
                 Vector2 randomPos = bounds.RandomPos();
-                var go = GameObject.Instantiate(prefabDancer, randomPos, Quaternion.identity);
+                var go = GameObject.Instantiate(prefabDancer, randomPos, Quaternion.identity, transform);
                 var rmc = go.GetComponent<RandomMovementController>();
                 rmc.areaToMove = bounds;
             }
