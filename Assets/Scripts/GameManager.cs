@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Action eventGameEnded;
+    public Action eventGameWinned;
 
     private void Awake() {
        if(instance == null)
@@ -21,5 +22,10 @@ public class GameManager : MonoBehaviour
     public void LoseGame()
     {
         eventGameEnded?.Invoke();
+    }
+
+     public void WinGame()
+    {
+        eventGameWinned?.Invoke();
     }
 }
