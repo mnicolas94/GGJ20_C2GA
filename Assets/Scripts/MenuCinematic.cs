@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utiles;
 
@@ -15,6 +16,7 @@ public class MenuCinematic : MonoBehaviour
     public Image relojsr;
     public Sprite doce;
     
+    public AudioSource cuna;
     public AudioSource music;
     public AudioSource bostezo;
     public AudioSource pasos;
@@ -22,27 +24,20 @@ public class MenuCinematic : MonoBehaviour
     
     private void Start()
     {
-        OrtoCamUtilities.MatchWidth(cam, background, true);
-        OrtoCamUtilities.MatchTopEdge(cam, background);
-        mtt.eventFinishedMoved += OnMoveFinished;
-        MoveCameraToBottom();
-        music.Play();
+//        OrtoCamUtilities.MatchWidth(cam, background, true);
+//        OrtoCamUtilities.MatchTopEdge(cam, background);
+//        mtt.eventFinishedMoved += OnMoveFinished;
+//        MoveCameraToBottom();
+        OrtoCamUtilities.MatchSize(cam, background, true, true);
+        
+        cuna.Play();
+        IEnumerator fadeSound1 = fadecuna();
+        StartCoroutine (fadeSound1);
     }
 
-    private void OnMoveFinished()
+    private void appear()
     {
         anim.SetTrigger("appear");
-    }
-
-    private void MoveCameraToBottom()
-    {
-        float semiHeight = background.bounds.extents.y;
-        float backBottom = background.transform.position.y - semiHeight;
-
-        var cameraPos = cam.transform.position;
-        cameraPos.y = backBottom + cam.orthographicSize;
-        mtt.target = cameraPos;
-        mtt.Move();
     }
 
     public void BeginPlayCinematic()
@@ -52,19 +47,56 @@ public class MenuCinematic : MonoBehaviour
         Destroy(relojanim);
         relojsr.sprite = doce;
 
-        StartCoroutine(fadeAudio(music));
+        IEnumerator fadeSound1 = fademusic();
+        StartCoroutine (fadeSound1);
     }
 
-    public IEnumerator fadeAudio(AudioSource a)
+    public IEnumerator fadecuna()
+    {
+        while (cuna.volume > 0)
+        {
+            cuna.volume = cuna.volume - fadeAudioStep;
+            yield return null;
+        }
+
+        cuna.volume = 0;
+        cuna.Stop();
+
+        anim.SetTrigger("appear");
+        music.Play();
+        print("music");
+    }
+    
+    public IEnumerator fademusic()
     {
         while (music.volume > 0)
         {
-            music.volume -= fadeAudioStep;
-//            a.clip.
+            music.volume = music.volume - fadeAudioStep;
             yield return null;
         }
 
         music.volume = 0;
         music.Stop();
+        
+        bostezo.Play();
+        IEnumerator fadeSound1 = fadebostezo();
+        StartCoroutine (fadeSound1);
+    }
+    
+    public IEnumerator fadebostezo()
+    {
+        while (bostezo.volume > 0)
+        {
+            bostezo.volume = bostezo.volume - fadeAudioStep;
+            yield return null;
+        }
+
+        pasos.Play();
+        Invoke("cambiarescena", 18f);
+    }
+
+    void cambiarescena()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

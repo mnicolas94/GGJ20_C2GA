@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19688060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.01, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1974732900}
@@ -263,8 +263,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2dc49f1c5e1ec11409036640fee0e7f0, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: ad07be798f8d1804499667b390b2459d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -517,8 +517,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 880622f8b3120bd4b90440186bc8008a, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 6fc7f8cd96c47d74f8b4e9fcd94f4abb, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -644,8 +644,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 880622f8b3120bd4b90440186bc8008a, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 078537fa4aedd784cafd540abb0521be, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -915,8 +915,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 5703446623991193822, guid: 5058a6d42eaf79444bf8c2ecfc58015d,
-      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 6940cce0d46997d45b798aedfdaa588c, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -959,8 +958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3839304063179675096, guid: 445027faeb777d940a8c39bb978b4b13,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1b725db3c52ce643a24d23c6e978acb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1053,7 +1051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61abf5d535716cf42a7af218f9279674, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 569f2321143743a42b63ac59427b40b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1113,7 +1111,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 40f9100495bc56d41985556a64bdb9bf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1412,8 +1410,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 2053946817341333030, guid: f700bc30a08fafa498255bd32da50efb,
-      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 157fde15656f2e34d8a9c5f638f2e154, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1456,8 +1453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -869978911005614000, guid: e69ecbd34aa083a4f86b44beda735be9,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d2aea176a95af7438fc37e6710e6b66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1550,11 +1546,12 @@ MonoBehaviour:
   mtt: {fileID: 1974732902}
   relojanim: {fileID: 1132214926}
   relojsr: {fileID: 1132214927}
-  doce: {fileID: 21300000, guid: 14c6a322a75699142bc9eccec94ed1a6, type: 3}
-  music: {fileID: 409308597}
+  doce: {fileID: 21300000, guid: 569f2321143743a42b63ac59427b40b6, type: 3}
+  cuna: {fileID: 409308597}
+  music: {fileID: 395862741}
   bostezo: {fileID: 1287727403}
   pasos: {fileID: 231613427}
-  fadeAudioStep: 0.1
+  fadeAudioStep: 0.001
 --- !u!114 &1974732902
 MonoBehaviour:
   m_ObjectHideFlags: 0
