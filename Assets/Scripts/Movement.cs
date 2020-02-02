@@ -40,16 +40,27 @@ public class Movement : MonoBehaviour
     public float RelativeModiffiedSpeed => (SpeedModified - MinSpeedPosible) / (MaxSpeedPosible - MinSpeedPosible);
     
     private Rigidbody2D _rb;
-
+    private Animator _anim;
+    private SpriteRenderer _spr;
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _spr = GetComponent<SpriteRenderer>();
     }
 
     public void Move(Vector2 dir)
     {
         if (!enabled)
             return;
+        
         _rb.velocity = dir.normalized * SpeedModified;
+        if (dir.x < 0)
+            _spr.flipX = true;
+        else
+            _spr.flipX = false;
+        
+        _anim.SetFloat("speed", dir.magnitude);
     }
 }
