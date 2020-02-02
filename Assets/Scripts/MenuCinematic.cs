@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Utiles;
 
 public class MenuCinematic : MonoBehaviour
@@ -10,7 +11,14 @@ public class MenuCinematic : MonoBehaviour
     public Camera cam;
     public SpriteRenderer background;
     public MoveToTarget mtt;
-    public AudioSource audio;
+    public Animator relojanim;
+    public Image relojsr;
+    public Sprite doce;
+    
+    public AudioSource music;
+    public AudioSource bostezo;
+    public AudioSource pasos;
+    public float fadeAudioStep = 0.1f;
     
     private void Start()
     {
@@ -18,7 +26,7 @@ public class MenuCinematic : MonoBehaviour
         OrtoCamUtilities.MatchTopEdge(cam, background);
         mtt.eventFinishedMoved += OnMoveFinished;
         MoveCameraToBottom();
-        audio.Play();
+        music.Play();
     }
 
     private void OnMoveFinished()
@@ -40,5 +48,23 @@ public class MenuCinematic : MonoBehaviour
     public void BeginPlayCinematic()
     {
         anim.SetTrigger("disappear");
+        
+        Destroy(relojanim);
+        relojsr.sprite = doce;
+
+        StartCoroutine(fadeAudio(music));
+    }
+
+    public IEnumerator fadeAudio(AudioSource a)
+    {
+        while (music.volume > 0)
+        {
+            music.volume -= fadeAudioStep;
+//            a.clip.
+            yield return null;
+        }
+
+        music.volume = 0;
+        music.Stop();
     }
 }
