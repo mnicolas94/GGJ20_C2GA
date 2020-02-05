@@ -5,10 +5,10 @@ In our venue we also had a sub-theme: "Sustainable urban development"
 
 The game consist of a party made at a familiar building. The main character is neighbour of that building which have the mission of stop that party in order to "repair the acustic environment".
 
-Team members:
-Taimy Valdés Leyva: Graphic Designer
-Javier Castro López: Graphic Designer
-José Manuel Ramírez Sánchez: Sound
-Alejandro Giubel Hernández Arbelo: Programmer
-Miguel Alejandro Nicolás Díaz: Programmer
+Team members:  
+Taimy Valdés Leyva: Graphic Designer  
+Javier Castro López: Graphic Designer  
+José Manuel Ramírez Sánchez: Sound  
+Alejandro Giubel Hernández Arbelo: Programmer  
+Miguel Alejandro Nicolás Díaz: Programmer  
 
