@@ -54,6 +54,8 @@ public class CollisionDancer : MonoBehaviour
                 
                 SpotLights(true);
                 _timeToStop = Time.time + timeToRespond;
+                
+                GetComponent<AudioSource>().Play();
             }
         }
     }

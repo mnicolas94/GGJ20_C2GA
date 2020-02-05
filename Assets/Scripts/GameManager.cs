@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Action eventGameEnded;
     public Action eventGameWinned;
-
+    
+    public AudioSource music;
+    public AudioSource boo;
+    
     public GameObject menu;
     public GameObject winCartel;
     public GameObject loseCartel;
@@ -34,6 +37,11 @@ public class GameManager : MonoBehaviour
         
         menu.SetActive(true);
         loseCartel.SetActive(true);
+        
+        var f = fademusic();
+        StartCoroutine(f);
+        boo.Play();
+        stopAllDancers();
     }
 
      public void WinGame()
@@ -44,5 +52,31 @@ public class GameManager : MonoBehaviour
         menu.SetActive(true);
         // cartel win
         winCartel.SetActive(true);
+        GetComponent<AudioSource>().Play();
+
+        var f = fademusic();
+        StartCoroutine(f);
+        stopAllDancers();
     }
+     
+     public IEnumerator fademusic()
+     {
+         while (music.volume > 0)
+         {
+             music.volume = music.volume - 0.01f;
+             yield return null;
+         }
+
+         music.Play();
+         Invoke("cambiarescena", 18f);
+     }
+
+     void stopAllDancers()
+     {
+         foreach (var m in FindObjectsOfType<Movement>())
+         {
+             m.Move(Vector2.zero);
+             m.enabled = false;
+         }
+     }
 }

@@ -8,6 +8,7 @@ using Utiles;
 
 public class MenuCinematic : MonoBehaviour
 {
+    public Animator edificioanim;
     public Animator anim;
     public Camera cam;
     public SpriteRenderer background;
@@ -17,10 +18,12 @@ public class MenuCinematic : MonoBehaviour
     public Sprite doce;
     
     public AudioSource cuna;
+    public float cunaFade;
     public AudioSource music;
+    public float musicFade;
     public AudioSource bostezo;
+    public float bostezoFade;
     public AudioSource pasos;
-    public float fadeAudioStep = 0.1f;
     
     private void Start()
     {
@@ -55,13 +58,14 @@ public class MenuCinematic : MonoBehaviour
     {
         while (cuna.volume > 0)
         {
-            cuna.volume = cuna.volume - fadeAudioStep;
+            cuna.volume = cuna.volume - cunaFade;
             yield return null;
         }
 
         cuna.volume = 0;
         cuna.Stop();
 
+        edificioanim.enabled = true;
         anim.SetTrigger("appear");
         music.Play();
         print("music");
@@ -71,7 +75,7 @@ public class MenuCinematic : MonoBehaviour
     {
         while (music.volume > 0)
         {
-            music.volume = music.volume - fadeAudioStep;
+            music.volume = music.volume - musicFade;
             yield return null;
         }
 
@@ -87,7 +91,7 @@ public class MenuCinematic : MonoBehaviour
     {
         while (bostezo.volume > 0)
         {
-            bostezo.volume = bostezo.volume - fadeAudioStep;
+            bostezo.volume = bostezo.volume - bostezoFade;
             yield return null;
         }
 
